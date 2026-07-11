@@ -95,7 +95,8 @@
         "pages/password.js",
         "pages/lockdown.js",
         "pages/blocked.js",
-        "pages/delayed.js"
+        "pages/delayed.js",
+        "pages/shared.css"
       ]
     }
   ]
