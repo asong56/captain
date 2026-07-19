@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Almost… — Captain</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+body {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px;
+}
+.delay-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: inset 0 1px 0 oklch(100% 0 0 / 0.20), var(--shadow-lg);
+  border-radius: var(--radius-lg);
+  padding: 40px 48px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  animation: fade-up 280ms var(--ease-out) both;
+}
+.delay-card h1 { font-size: var(--text-lg); font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+.delay-card p  { font-size: var(--text-sm); color: var(--color-text-muted); margin: 0 0 24px; line-height: 1.6; }
+
+/* ACDN progress ring */
+.progress-ring { position: relative; width: 64px; height: 64px; margin: 0 auto 24px; }
+.progress-ring svg { transform: rotate(-90deg); }
+.ring-bg    { fill: none; stroke: var(--color-border); stroke-width: 3; }
+.ring-fill  { fill: none; stroke: var(--color-accent); stroke-width: 3; stroke-linecap: round;
+              transition: stroke-dashoffset 1s linear; }
+.ring-label {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: var(--text-lg); font-weight: 600;
+  color: var(--color-accent);
+}
+.block-url {
+  font-family: var(--font-mono); font-size: var(--text-xs);
+  background: var(--color-surface); border: 1px solid var(--color-border);
+  border-radius: var(--radius-base); padding: 8px 12px; margin-bottom: 24px;
+  word-break: break-all; color: var(--color-text-muted); text-align: left;
+}
+.actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+<div class="delay-card">
+  <div class="progress-ring">
+    <svg width="64" height="64" viewBox="0 0 64 64">
+      <circle class="ring-bg"   cx="32" cy="32" r="28"/>
+      <circle class="ring-fill" cx="32" cy="32" r="28" id="ring"/>
+    </svg>
+    <div class="ring-label" id="countdown">…</div>
+  </div>
+  <h1>Take a breath</h1>
+  <p>You set a delay for this site. The page will open shortly.</p>
+  <div class="block-url" id="delayed-url"></div>
+  <div class="actions">
+    <button class="btn btn-outline" onclick="history.back()">← Go back</button>
+    <button class="btn btn-primary" id="skip-btn">Skip wait</button>
+  </div>
+</div>
+<script src="delayed.js"></script>
+</body>
+</html>

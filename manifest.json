@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Nexus",
+  "name": "Captain",
   "version": "1.0.0",
-  "description": "Unified browser extension: command palette, focus guard, WebRTC control, UA switcher, search filter",
+  "description": "One helm, open seas. Proxy, privacy, focus, vault, AI, and tab control \u2014 unified.",
   "permissions": [
     "tabs",
     "activeTab",
@@ -13,6 +13,7 @@
     "search",
     "storage",
     "unlimitedStorage",
+    "sessions",
     "alarms",
     "webNavigation",
     "contextMenus",
@@ -20,7 +21,9 @@
     "privacy",
     "declarativeNetRequest",
     "declarativeNetRequestWithHostAccess",
-    "proxy"
+    "proxy",
+    "management",
+    "idle"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -42,12 +45,12 @@
     "128": "assets/icon128.png"
   },
   "commands": {
-    "open-nexus": {
+    "open-captain": {
       "suggested_key": {
         "default": "Ctrl+Shift+K",
         "mac": "Command+Shift+K"
       },
-      "description": "Open Nexus command palette"
+      "description": "Open Captain command palette"
     }
   },
   "content_scripts": [
@@ -71,6 +74,15 @@
         "<all_urls>"
       ],
       "run_at": "document_start"
+    },
+    {
+      "js": [
+        "content/annotate.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ],
+      "run_at": "document_end"
     }
   ],
   "options_ui": {
@@ -83,20 +95,15 @@
         "<all_urls>"
       ],
       "resources": [
-        "newtab.html",
-        "pages/*",
-        "inject/*",
         "assets/*",
         "content/overlay.css",
         "content/overlay-inner.html",
-        "newtab.js",
         "content/overlay-inner.js",
-        "pages/options.js",
-        "pages/password.js",
-        "pages/lockdown.js",
-        "pages/blocked.js",
-        "pages/delayed.js",
-        "pages/shared.css"
+        "inject/*",
+        "pages/*",
+        "ticker.html",
+        "ticker.js",
+        "assets/fonts/*"
       ]
     }
   ]

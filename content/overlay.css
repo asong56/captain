@@ -1,0 +1,14 @@
+/* Captain overlay frame — host-page stylesheet */
+#captain-overlay-frame {
+  all: unset !important;
+  display: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  z-index: 2147483647 !important;
+  background: transparent !important;
+  pointer-events: auto !important;
+  color-scheme: normal !important;
+}

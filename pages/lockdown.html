@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="shared.css">
+<title>Lockdown — Captain Focus Guard</title>
+<style>
+  label { font-size: 13px; color: var(--sub); }
+  input[type=number] {
+    background: var(--surface); border: 1px solid var(--border); color: var(--text);
+    border-radius: 8px; padding: 8px 12px; font-size: 16px; width: 80px; text-align: center;
+    outline: none; font-family: inherit;
+  }
+  input[type=number]:focus { border-color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="icon">🔒</div>
+<h1>Lockdown Mode</h1>
+<p>Enable lockdown to block all sites in your block sets for a fixed duration. Lockdown cannot be overridden without the lockdown password.</p>
+<div class="duration-row">
+  <label for="hours">Hours</label>
+  <input type="number" id="hours" min="0" max="24" value="1">
+  <label for="mins">Minutes</label>
+  <input type="number" id="mins"  min="0" max="59" value="0">
+</div>
+<div class="actions">
+  <button class="btn btn-danger"  id="btn-lock">Enable Lockdown</button>
+  <button class="btn btn-outline" id="btn-cancel-lock">Cancel Lockdown</button>
+</div>
+<div class="status" id="status"></div>
+<button class="btn btn-outline" style="margin-top:8px" id="btn-close">Close</button>
+<script src="lockdown.js"></script>
+</body>
+</html>
